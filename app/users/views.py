@@ -30,7 +30,7 @@ class index(APIView):
         return Response({'instructors': queryset})
 
 
-class list_all_tutorials(APIView):
+class list_all_Instructors(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'instructors/instructor_list.html'
 
@@ -42,7 +42,7 @@ class list_all_tutorials(APIView):
 @api_view(['GET', 'POST', 'DELETE'])
 def instructor_list(request):
     if request.method == 'GET':
-        tutorials = Instructor.objects.all()
+        instructors = Instructor.objects.all()
 
         title = request.GET.get('last_name', None)
         if title is not None:
